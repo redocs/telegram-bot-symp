@@ -108,12 +108,12 @@ const superWizard = new WizardScene(
     }
 );
 
-let configToken;
-if (typeof config !== undefined) {
-    configToken = config.telegraf_token
-} else {
-    configToken = ENV.TELEGRAF_TOKEN
-}
+let configToken = ENV.TELEGRAF_TOKEN
+// if (typeof config !== undefined) {
+//     configToken = config.telegraf_token
+// } else {
+//     configToken = ENV.TELEGRAF_TOKEN
+// }
 
 const bot = new Telegraf(configToken);
 
