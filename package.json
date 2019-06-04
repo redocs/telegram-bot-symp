@@ -1,0 +1,12 @@
+{
+  "name": "symposiumthebot",
+  "version": "1.0.0",
+  "description": "Vuoi condividere qualcosa che ami sul canale o scriverci un messaggio?",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "telegraf": "^3.30.1"
+  }
+}
