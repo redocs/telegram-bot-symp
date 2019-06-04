@@ -108,7 +108,7 @@ const superWizard = new WizardScene(
     }
 );
 
-let configToken = TELEGRAF_TOKEN
+let configToken = process.env.TELEGRAF_TOKEN
 // if (typeof config !== undefined) {
 //     configToken = config.telegraf_token
 // } else {
