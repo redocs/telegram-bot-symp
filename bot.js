@@ -3,7 +3,7 @@ const session = require('telegraf/session');
 const Stage = require('telegraf/stage');
 const Markup = require('telegraf/markup');
 const WizardScene = require('telegraf/scenes/wizard');
-//const config = require('./config'); // Configuration file that holds telegraf_token API key.
+require('dotenv').config();
 
 let chatObject = {};
 const superWizard = new WizardScene(
@@ -109,11 +109,6 @@ const superWizard = new WizardScene(
 );
 
 let configToken = process.env.TELEGRAF_TOKEN
-// if (typeof config !== undefined) {
-//     configToken = config.telegraf_token
-// } else {
-//     configToken = ENV.TELEGRAF_TOKEN
-// }
 
 const bot = new Telegraf(configToken);
 
