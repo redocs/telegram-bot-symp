@@ -23,6 +23,7 @@ const superWizard = new WizardScene(
     },
     ctx => {
         ctx.reply('Step 3. Autore');
+        chatObject.from = ctx.message.from.username;
         chatObject.titolo = ctx.message.text;
         console.log('Titolo', ctx.message.text);
         return ctx.wizard.next();
@@ -90,7 +91,8 @@ const superWizard = new WizardScene(
         console.log({
             chatObject
         });
-        var testo = '<b>Titolo:</b> ' + chatObject.titolo + '\n';
+        var testo = 'Segnalazione di <b>' + chatObject.from + '</b>\n';
+        testo += '<b>Titolo:</b> ' + chatObject.titolo + '\n';
         testo += '<b>Autore:</b> ' + chatObject.autore + '\n';
         testo += chatObject.anno ? '<b>Anno:</b> ' + chatObject.anno + '\n' : '';
         testo += chatObject.categoria ?
@@ -98,11 +100,11 @@ const superWizard = new WizardScene(
             '';
         testo += chatObject.stato ? '<b>Stato:</b> ' + chatObject.stato + '\n' : '';
         testo += chatObject.media ? '<b>Media:</b> ' + chatObject.media + '\n' : '';
-        ctx.telegram.sendMessage(37052591, testo, {
+        ctx.telegram.sendMessage(process.env.ADMIN_ID, testo, {
             parse_mode: 'HTML'
         });
         if (typeof sendMedia !== 'undefined') {
-            ctx.telegram.sendPhoto(37052591, sendMedia.photo[0].file_id);
+            ctx.telegram.sendPhoto(process.env.ADMIN_ID, sendMedia.photo[0].file_id);
         }
         return ctx.scene.leave();
     }
