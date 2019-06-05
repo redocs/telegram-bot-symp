@@ -1,0 +1,6 @@
+{
+  "builds": [{
+    "src": "bot.js",
+    "use": "@now/node"
+  }]
+}
